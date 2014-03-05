@@ -94,7 +94,7 @@ if (!empty($q)) {
             opacity: 0.7;
             padding-left: 8px;
         }
-    </style;
+    </style>;
 </head>
 <body>
     <form action="/" method="GET">
