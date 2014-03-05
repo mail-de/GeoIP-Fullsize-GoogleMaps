@@ -28,6 +28,10 @@ the IP address as GET-parameter q, for example:
 
 https://geoip.mail.de/?q=1.2.3.4
 
+If you want the map to be localized into German, add the GET-parameter l:
+
+https://geoip.mail.de/?q=1.2.3.4&l=de
+
 ToDo:
 -----
 - ??? What do you need?

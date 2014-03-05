@@ -24,6 +24,12 @@ if (!empty($q)) {
 } else {
     $lat = 0;
     $lan = 0;
+}
+
+if (isset($_GET['l'])) {
+    $l = $_GET['l'];
+} else {
+    $l = 'en';
 } ?>
 
 <!DOCTYPE html>
@@ -73,12 +79,6 @@ if (!empty($q)) {
             width: 270px;
         }
 
-        .map_link {
-            z-index: 10;
-            position: absolute;
-            text-align: center;
-            display: block;
-            width: 100%; }
         .project_by {
             position: absolute;
             bottom: 0;
@@ -94,7 +94,7 @@ if (!empty($q)) {
             opacity: 0.7;
             padding-left: 8px;
         }
-    </style>;
+    </style>
 </head>
 <body>
     <form action="/" method="GET">
@@ -105,7 +105,7 @@ if (!empty($q)) {
     <div id="map"></div>
     <div class="project_by">A project by <a href="https://mail.de" target="_blank" style="color: #010101;">mail.de</a></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBjvpNQ4YZtp2ATNU4pHIZXt5S9MUuSTDE"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=<?=$l ?>&key=AIzaSyBjvpNQ4YZtp2ATNU4pHIZXt5S9MUuSTDE"></script>
     <script type="text/javascript" charset="utf-8">
         var map;
         function initialize() {
