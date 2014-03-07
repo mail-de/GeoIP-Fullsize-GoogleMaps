@@ -1,9 +1,9 @@
 <?
 require 'vendor/autoload.php';
 
-if (isset($_GET['q'])) {
+if (isset($_GET['q']) && filter_var($_GET['q'], FILTER_VALIDATE_IP) !== false) {
     $q = $_GET['q'];
-} elseif (isset($_SERVER['HTTP_X_REAL_IP'])) {
+} elseif (isset($_SERVER['HTTP_X_REAL_IP']) && filter_var($_SERVER['HTTP_X_REAL_IP'], FILTER_VALIDATE_IP) !== false) {
     $q = $_SERVER['HTTP_X_REAL_IP'];
 } elseif (isset($_SERVER['REMOTE_ADDR'])) {
     $q = $_SERVER['REMOTE_ADDR'];
@@ -26,7 +26,8 @@ if (!empty($q)) {
     $lan = 0;
 }
 
-if (isset($_GET['l'])) {
+$languages = array('ar','eu','bg','bn','ca','cs','da','de','el','en','en-AU','en-GB','es','eu','fa','fi','fil','fr','gl','gu','hi','hr','hu','id','it','iw','ja','kn','ko','lt','lv','ml','mr','nl','no','pl','pt','pt-BR','pt-PT','ro','ru','sk','sl','sr','sv','tl','ta','te','th','tr','uk','vi','zh-CN','zh-TW');
+if (isset($_GET['l']) && in_array($_GET['l'], $languages)) {
     $l = $_GET['l'];
 } else {
     $l = 'en';
@@ -65,20 +66,19 @@ if (isset($_GET['l'])) {
             top: 0;
             left: 0;
         }
-
         form {
             position: absolute;
             z-index: 1;
             left: 50%;
             width: 330px;
-            margin-left: -165px; }
+            margin-left: -165px;
+        }
         form fieldset {
             border: none;
         }
         form fieldset #q {
             width: 270px;
         }
-
         .project_by {
             position: absolute;
             bottom: 0;
