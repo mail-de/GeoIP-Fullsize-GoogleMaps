@@ -105,7 +105,7 @@ if (isset($_GET['l']) && in_array($_GET['l'], $languages)) {
     <div id="map"></div>
     <div class="project_by">A project by <a href="https://mail.de" target="_blank" style="color: #010101;">mail.de</a></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=<?=$l ?>&key=AIzaSyBjvpNQ4YZtp2ATNU4pHIZXt5S9MUuSTDE"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=<?=$l ?>"></script>
     <script type="text/javascript" charset="utf-8">
         var map;
         function initialize() {
